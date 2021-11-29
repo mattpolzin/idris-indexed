@@ -1,0 +1,9 @@
+package tests
+
+executable = "test"
+depends = indexed >= 0.0.1
+        , contrib >= 0.5.1
+        , test    >= 0.5.1
+
+modules = Main
+main    = Main

@@ -1,0 +1,12 @@
+package indexed
+
+version = 0.0.1
+sourcedir = "src"
+
+modules = Control.Applicative.Indexed
+        , Control.Indexed
+        , Control.Functor.Indexed
+        , Control.Monad.Indexed
+        , Control.Monad.Indexed.Do
+        , Control.Monad.TransitionIndexed
+        , Control.Monad.TransitionIndexed.Do

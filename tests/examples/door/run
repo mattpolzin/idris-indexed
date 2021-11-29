@@ -1,0 +1,3 @@
+rm -rf ../door/build
+
+$1 --build door.ipkg
