@@ -4,7 +4,7 @@ PACKAGE = indexed.ipkg
 
 .PHONY: build clean install test
 
-build/ttc :
+build/ttc : src/**/*.idr
 	$(IDRIS2) --build ${PACKAGE}
 
 build : build/ttc
