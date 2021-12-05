@@ -1,6 +1,6 @@
 package indexed
 
-version = 0.0.3
+version = 0.0.4
 sourcedir = "src"
 
 modules = Control.Applicative.Indexed

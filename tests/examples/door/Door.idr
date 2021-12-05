@@ -27,6 +27,9 @@ data DoorCmd : (0 ty : Type) ->
           ((res: a) -> DoorCmd b (state2_fn res) state3_fn) ->
           DoorCmd b state1 state3_fn
 
+TransitionIndexedPointed DoorState DoorCmd where
+  pure = Pure
+
 TransitionIndexedMonad DoorState DoorCmd where
   bind = Bind
 
@@ -57,4 +60,15 @@ doorProg2 = do RingBell
                OK <- Open | Jammed => Display "Door Jammed"
                Display "Glad To Be Of Service"
                Close
+
+doorProg3 : (diagnostic : Bool) -> DoorCmd () DoorClosed (const DoorClosed)
+doorProg3 diagnostic =
+  do RingBell
+     OK <- Open
+       | Jammed => do Display "Door Jammed"
+                      when diagnostic $
+                        Display "debug: after first ring of bell."
+     unless diagnostic $
+       Display "Glad To Be Of Service"
+     Close
 
