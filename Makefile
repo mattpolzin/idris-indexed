@@ -15,6 +15,9 @@ clean :
 install : build/ttc
 	$(IDRIS2) --install ${PACKAGE}
 
+install-with-src : build/ttc
+	$(IDRIS2) --install-with-src ${PACKAGE}
+
 test : install
 	$(MAKE) -C ./tests test
 
