@@ -2,3 +2,4 @@
 build/
 *.idr~
 .*.swp
+.DS_Store
