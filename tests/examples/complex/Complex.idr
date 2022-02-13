@@ -13,9 +13,9 @@ data IsFirst : ComplexState -> Type where
 ||| Result of moving from Second to Third state
 data Trans2Result = OK | Error
 
-data ComplexCmd : (0 ty : Type) ->
+data ComplexCmd : (ty : Type) ->
                   ComplexState ->
-                  (0 _ : ty -> ComplexState) ->
+                  (ty -> ComplexState) ->
                   Type where
   Init       :              ComplexCmd () (First Sub1) (const (First Sub1))
   SubTrans   :              ComplexCmd () (First Sub1) (const (First Sub2))

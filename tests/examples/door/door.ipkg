@@ -2,4 +2,4 @@ package door
 
 modules = Door
 
-depends = indexed >= 0.0.1
+depends = indexed >= 0.0.5
