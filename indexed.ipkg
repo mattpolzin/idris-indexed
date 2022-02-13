@@ -1,6 +1,6 @@
 package indexed
 
-version = 0.0.5
+version = 0.0.6
 sourcedir = "src"
 
 modules = Control.Applicative.Indexed
@@ -11,4 +11,3 @@ modules = Control.Applicative.Indexed
         , Control.Monad.TransitionIndexed
         , Control.Monad.TransitionIndexed.Do
         , Control.TransitionIndexed
-        , Control.IndexedUtil
