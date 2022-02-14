@@ -12,7 +12,7 @@ which lends itself to the traditional definition of indexed functor, applicatve,
 
 More complication versions of these indexed types will represent the second state as a function of the result type
 ```idris
-data Door : (0 a : Type) -> DoorState -> (0 _ : a -> DoorState) -> Type
+data Door : (a : Type) -> DoorState -> (a -> DoorState) -> Type
 ```
 which is no longer a functor or applicative (as far as I have been able to figure, without representing the second state transition function as a data type itself). This package surfaces `TransitionIndexedPointed` and `TransitionIndexedMonad` that suit this use-case. The `Pointed` interface declares a `pure` function and the `Monad` interface declares a `bind` function.
 
