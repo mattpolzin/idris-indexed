@@ -10,9 +10,9 @@ data DoorState = DoorClosed | DoorOpen
 
 data DoorResult = OK | Jammed
 
-data DoorCmd : (0 ty : Type) ->
+data DoorCmd : (ty : Type) ->
                DoorState ->
-               (0 _ : ty -> DoorState) ->
+               (ty -> DoorState) ->
                Type where
   Open :     DoorCmd DoorResult DoorClosed (\res => case res of
                                                          OK => DoorOpen

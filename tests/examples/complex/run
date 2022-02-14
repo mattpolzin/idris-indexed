@@ -1,0 +1,3 @@
+rm -rf ../complex/build
+
+$1 --build complex.ipkg

@@ -2,4 +2,4 @@ package simple-state
 
 modules = SimpleState
 
-depends = indexed >= 0.0.1
+depends = indexed >= 0.0.5

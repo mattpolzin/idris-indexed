@@ -7,7 +7,7 @@ infixl 1 >>>=, =<<<, >>>
 ||| A TransitionIndexed pointed type defines purity but is not necessarily
 ||| Applicative.
 public export
-interface TransitionIndexedPointed z (0 m : (0 ty : Type) -> z -> (0 _ : ty -> z) -> Type) | m where
+interface TransitionIndexedPointed z (0 m : (ty : Type) -> z -> (ty -> z) -> Type) | m where
   pure : {0 a : Type} -> {0 f : a -> z} -> (x : a) -> m a (f x) f
 
 ||| A TransitionIndexed monad is like an indexed monad but the third
@@ -24,7 +24,7 @@ interface TransitionIndexedPointed z (0 m : (0 ty : Type) -> z -> (0 _ : ty -> z
 |||                   (0 _ : ty -> DoorState) ->
 |||                   Type
 public export
-interface TransitionIndexedMonad z (0 m : (0 ty : Type) -> z -> (0 _ : ty -> z) -> Type) | m where
+interface TransitionIndexedMonad z (0 m : (ty : Type) -> z -> (ty -> z) -> Type) | m where
   bind : {0 x : z} -> {0 f : a -> z} -> {0 g : b -> z} -> m a x f -> ((res : a) -> m b (f res) g) -> m b x g
 
 public export
