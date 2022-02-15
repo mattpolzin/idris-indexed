@@ -36,3 +36,19 @@ public export
 unless : IndexedApplicative z f => Bool -> Lazy (f () i i) -> f () i i
 unless = when . not
 
+||| Map each element of a structure to a computation, evaluate those
+||| computations and discard the results.
+public export
+traverse_ : (Foldable t, IndexedApplicative z f) => (a -> f b i i) -> t a -> f () i i
+traverse_ f = foldr ((*>>) . f) (pure ())
+
+||| Evaluate each computation in a structure and discard the results.
+public export
+sequence_ : (Foldable t, IndexedApplicative z f) => t (f a i i) -> f () i i
+sequence_ = foldr (*>>) (pure ())
+
+||| Like `traverse_` but with the arguments flipped.
+public export
+for_ : (Foldable t, IndexedApplicative z f) => t a -> (a -> f b i i) -> f () i i
+for_ = flip traverse_
+
