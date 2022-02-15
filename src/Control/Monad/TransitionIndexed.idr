@@ -19,9 +19,9 @@ interface TransitionIndexedPointed z (0 m : (ty : Type) -> z -> (ty -> z) -> Typ
 |||
 ||| For example, take the final Door example from "Type-Driven Development with Idris."
 |||
-|||    data DoorCmd : (0 ty : Type) ->
+|||    data DoorCmd : (ty : Type) ->
 |||                   DoorState ->
-|||                   (0 _ : ty -> DoorState) ->
+|||                   (ty -> DoorState) ->
 |||                   Type
 public export
 interface TransitionIndexedMonad z (0 m : (ty : Type) -> z -> (ty -> z) -> Type) | m where
@@ -50,4 +50,20 @@ when False w = pure ()
 export
 unless : TransitionIndexedPointed z m => Bool -> Lazy (m () (f ()) f) -> m () (f ()) f
 unless = when . not
+
+||| Map each element of a structure to a computation, evaluate those
+||| computations and discard the results.
+public export
+traverse_ : (Foldable t, TransitionIndexedPointed z m, TransitionIndexedMonad z m) => (a -> m b x (const x)) -> t a -> m () x (const x)
+traverse_ f = foldr (\x,acc => (f x) >>>= (const acc)) (pure ())
+
+||| Evaluate each computation in a structure and discard the results.
+public export
+sequence_ : (Foldable t, TransitionIndexedPointed z m, TransitionIndexedMonad z m) => t (m a x (const x)) -> m () x (const x)
+sequence_ = foldr (\x, acc => x >>>= (const acc)) (pure ())
+
+||| Like `traverse_` but with the arguments flipped.
+public export
+for_ : (Foldable t, TransitionIndexedPointed z m, TransitionIndexedMonad z m) => t a -> (a -> m b x (const x)) -> m () x (const x)
+for_ = flip traverse_
 
