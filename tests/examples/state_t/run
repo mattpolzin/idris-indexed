@@ -1,0 +1,3 @@
+rm -rf ../state_t/build
+
+$1 --build state_t.ipkg
