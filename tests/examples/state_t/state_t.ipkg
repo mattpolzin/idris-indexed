@@ -2,4 +2,4 @@ package state_t
 
 modules = StateTransformer
 
-depends = indexed >= 0.0.5
+depends = indexed >= 0.0.8
