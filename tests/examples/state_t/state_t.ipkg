@@ -1,0 +1,5 @@
+package state_t
+
+modules = StateTransformer
+
+depends = indexed >= 0.0.8
