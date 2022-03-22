@@ -5,7 +5,7 @@ import Control.Monad.Indexed.State
 data State = One | Two | Three
 
 data Transition : Type -> State -> State -> Type where
-  Pure : (x : a) -> Transition a s s
+  Pure : (x : a) -> Transition a s1 s2
   First : Transition () One Two
   Second : Transition () Two Three
   Third : Transition () Three One
@@ -20,7 +20,8 @@ IndexedFunctor State State Transition where
 
 [n1] IndexedApplicative State Transition where
   pure = Pure
-  ap (Pure f) x = map f x
+
+  ap (Pure f) x = Bind (Pure ()) (const $ f <<$>> x)
   ap (Bind y f) x = 
     Bind y $ \y' =>
       Bind (f y') $ \f' =>

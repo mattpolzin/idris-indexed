@@ -7,7 +7,7 @@ infixl 3 <<*>>, <<*, *>>
 public export
 interface IndexedFunctor z z f => IndexedApplicative z f | f where
   total
-  pure : {0 i : z} -> (x : a) -> f a i i
+  pure : {0 i,j : z} -> (x : a) -> f a i j
 
   total
   ap : {0 i,j,k : z} -> f (a -> b) i j -> f a j k -> f b i k
