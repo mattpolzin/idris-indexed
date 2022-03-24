@@ -63,6 +63,10 @@ get : IndexedApplicative z m => IndexedStateT stateType z z m stateType i i
 get = ST $ \st => pure (st, st)
 
 public export
+gets : IndexedApplicative z m => (stateType -> a) -> IndexedStateT stateType z z m a i i
+gets f = ST $ \st => pure (st, f st)
+
+public export
 put : IndexedApplicative z m => stateType -> IndexedStateT stateType z z m () i i
 put st = ST $ \_ => pure (st, ())
 
