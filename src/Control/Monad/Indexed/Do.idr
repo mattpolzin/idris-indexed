@@ -4,11 +4,12 @@ module Control.Monad.Indexed.Do
 
 import Control.Monad.Indexed
 
-public export
-(>>=) : IndexedMonad z m => m a i j -> (a -> m b j k) -> m b i k
-(>>=) = (>>>=)
+namespace Indexed
+  public export
+  (>>=) : IndexedMonad z m => m a i j -> (a -> m b j k) -> m b i k
+  (>>=) = (>>>=)
 
-public export
-(>>) : IndexedMonad z m => m () i j -> Lazy (m b j k) -> m b i k
-(>>) = (>>>)
+  public export
+  (>>) : IndexedMonad z m => m () i j -> Lazy (m b j k) -> m b i k
+  (>>) = (>>>)
 
