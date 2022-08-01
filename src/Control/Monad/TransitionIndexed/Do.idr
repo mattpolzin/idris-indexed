@@ -5,7 +5,7 @@ module Control.Monad.TransitionIndexed.Do
 
 import Control.Monad.TransitionIndexed
 
-namespace Indexed
+namespace TransitionIndexed
   public export
   (>>=) : TransitionIndexedMonad z m => m a x f -> ((res : a) -> m b (f res) g) -> m b x g
   (>>=) = (>>>=)
