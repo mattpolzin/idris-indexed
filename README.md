@@ -17,3 +17,17 @@ data Door : (a : Type) -> DoorState -> (a -> DoorState) -> Type
 which is no longer a functor or applicative (as far as I have been able to figure, without representing the second state transition function as a data type itself). This package surfaces `TransitionIndexedPointed` and `TransitionIndexedMonad` that suit this use-case. The `Pointed` interface declares a `pure` function and the `Monad` interface declares a `bind` function.
 
 I've also started to add other useful things in around the base monad extensions like an `IndexedStateT` type.
+
+### Disambiguating do-notation
+Not all do-statements cause trouble, but longer do-statements sometimes need to be disambiguated.
+
+If you need to disambiguate a do-statement that uses an indexed monad implementation, you can use:
+```idris
+Indexed.do
+  ...
+```
+in contrast to, say, a traditional monad:
+```idris
+Prelude.do
+  ...
+```
