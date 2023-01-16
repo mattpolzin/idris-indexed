@@ -55,11 +55,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1673705952,
-        "narHash": "sha256-dZOIFbgmyoi2oIamH8SFC9T9WBnB9nU+MLemR3oUs4A=",
+        "lastModified": 1673849241,
+        "narHash": "sha256-aVn5lZpn16778AZxa1iz4T2Wepcq+bwRDOfNiNK/3R8=",
         "owner": "idris-lang",
         "repo": "Idris2",
-        "rev": "60a3b80c19e2b29085c0f1faccdb4a1784ac6661",
+        "rev": "24ac56de8809ae7a2cd0126f01110d4b762389fc",
         "type": "github"
       },
       "original": {
