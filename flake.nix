@@ -24,7 +24,7 @@
 
           IDRIS2 = "${idris2'}/bin/idris2";
           IDRIS2_PREFIX = "${placeholder "out"}";
-          IDRIS2_PACKAGE_PATH = builtins.concatStringsSep ":" (builtins.map (p: "${p}/idris2-0.6.0") idrisPackages);
+          IDRIS2_PACKAGE_PATH = builtins.concatStringsSep ":" (builtins.map (p: "${p}/idris2-${idris2'.version}") idrisPackages);
 
           buildPhase = ''
             make clean
