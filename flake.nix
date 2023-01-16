@@ -19,11 +19,12 @@
           name = "idris-indexed";
           version = "0.0.9";
           src = ./.;
-          buildInputs = [ idris2' ];
+          idrisPackages = [];
+          buildInputs = [ idris2' ] ++ idrisPackages;
 
           IDRIS2 = "${idris2'}/bin/idris2";
           IDRIS2_PREFIX = "${placeholder "out"}";
-          idris2_pkg_paths = [ "${IDRIS2_PREFIX}/idris2-0.6.0" ];
+          IDRIS2_PACKAGE_PATH = builtins.concatStringsSep ":" (builtins.map (p: "${p}/idris2-0.6.0") idrisPackages);
 
           buildPhase = ''
             make clean
