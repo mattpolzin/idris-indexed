@@ -2,6 +2,7 @@ module Control.Applicative.Indexed
 
 import Control.Functor.Indexed
 
+export
 infixl 3 <<*>>, <<*, *>>
 
 public export

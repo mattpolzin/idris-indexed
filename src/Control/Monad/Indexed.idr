@@ -3,6 +3,7 @@ module Control.Monad.Indexed
 import Control.Functor.Indexed
 import Control.Applicative.Indexed
 
+export
 infixl 1 >>>=, =<<<, >>>, >>=>, <=<<
 
 public export
