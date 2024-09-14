@@ -1,9 +1,9 @@
 package tests
 
 executable = "test"
-depends = indexed >= 0.0.7
-        , contrib >= 0.5.1
-        , test    >= 0.5.1
+depends = indexed >= 0.0.10
+        , contrib >= 0.7.0
+        , test    >= 0.7.0
 
 modules = Main
 main    = Main
