@@ -1,5 +1,6 @@
 module Control.Monad.TransitionIndexed
 
+export
 infixl 1 >>>=, =<<<, >>>
 
 %hide Prelude.pure

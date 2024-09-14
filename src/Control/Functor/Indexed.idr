@@ -1,6 +1,9 @@
 module Control.Functor.Indexed
 
+export
 infixl 1 <<&>>
+
+export
 infixr 4 <<$>>, <<$, $>>
 
 ||| An Indexed Functor.
